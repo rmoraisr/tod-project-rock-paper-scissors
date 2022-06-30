@@ -8,8 +8,16 @@
     </head>
 
     <body>
-        <scrip>
+        <script>
+            function computerPlay() {
+                const arrChoices = ['Paper', 'Rock', 'Scissors'];
+                // get random index
+                const randomIndex = Math.floor(Math.random() * arrChoices.length);
 
-        </scrip>
+                // get random item form the array
+                const item = arrChoices[randomIndex];
+                return item;
+            }
+        </script>
     </body>
 </hmtl>

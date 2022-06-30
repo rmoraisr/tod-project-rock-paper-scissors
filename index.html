@@ -24,25 +24,31 @@
                 playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
                 let computerSelection = computerPlay()
                 let looserMessage = `You Lose! ${computerSelection} beats ${playerSelection}`;
-                let winnerMessage = `You Win! ${playerSelection} beats ${computerSelection}`;
-                let result
+                let winnerMessage = `You Win! ${playerSelection} beats ${computerSelection}. 1 point added to your score!!`;
+                let resultMessage;
+                // 1 represents player wins, 0 computer wins
+                let result;
 
                 if (computerSelection === playerSelection) {
-                    result = `It\'s a tie!! Both choose ${computerSelection}`;
+                    resultMessage = `It\'s a tie!! Both choose ${computerSelection}`;
                 }
                 else if (computerSelection === 'Rock' && playerSelection === 'Scissors') {
-                    result = looserMessage;
+                    resultMessage = looserMessage;
+                    result = 0;
                 }
                 else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
-                    result = looserMessage;
+                    resultMessage = looserMessage;
+                    result = 0;
                 }
                 else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
-                    result = looserMessage;
+                    resultMessage = looserMessage;
+                    result = 0;
                 }
                 else {
-                    result = winnerMessage;
+                    resultMessage = winnerMessage;
+                    result = 1;
                 }
-                return result
+                return { resultMessage, result }
             }
 
         </script>

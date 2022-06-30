@@ -1,82 +1,83 @@
 <!DOCTYPE html>
-<hmtl lang="eng">
+<html lang="eng">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rock Paper Scissors</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
 
-    <body>
-        <script>
-            function computerPlay() {
-                const arrChoices = ['Paper', 'Rock', 'Scissors'];
-                // get random index
-                const randomIndex = Math.floor(Math.random() * arrChoices.length);
+<body>
+    <script>
+        function computerPlay() {
+            const arrChoices = ['Paper', 'Rock', 'Scissors'];
+            // get random index
+            const randomIndex = Math.floor(Math.random() * arrChoices.length);
 
-                // get random item form the array
-                const item = arrChoices[randomIndex];
-                return item;
+            // get random item form the array
+            const item = arrChoices[randomIndex];
+            return item;
+        }
+
+        function playRound() {
+            let playerSelection = prompt('Write your choice (Rock, Paper or Scissors)');
+            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+            let computerSelection = computerPlay()
+            let looserMessage = `You Lose! ${computerSelection} beats ${playerSelection}`;
+            let winnerMessage = `You Win! ${playerSelection} beats ${computerSelection}. 1 point added to your score!!`;
+            let resultMessage;
+            // 1 represents player wins, 0 computer wins
+            let result;
+
+            if (computerSelection === playerSelection) {
+                resultMessage = `It\'s a tie!! Both choose ${computerSelection}`;
             }
-
-            function playRound() {
-                let playerSelection = prompt('Write your choice (Rock, Paper or Scissors)');
-                playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-                let computerSelection = computerPlay()
-                let looserMessage = `You Lose! ${computerSelection} beats ${playerSelection}`;
-                let winnerMessage = `You Win! ${playerSelection} beats ${computerSelection}. 1 point added to your score!!`;
-                let resultMessage;
-                // 1 represents player wins, 0 computer wins
-                let result;
-
-                if (computerSelection === playerSelection) {
-                    resultMessage = `It\'s a tie!! Both choose ${computerSelection}`;
-                }
-                else if (computerSelection === 'Rock' && playerSelection === 'Scissors') {
-                    resultMessage = looserMessage;
-                    result = 0;
-                }
-                else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
-                    resultMessage = looserMessage;
-                    result = 0;
-                }
-                else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
-                    resultMessage = looserMessage;
-                    result = 0;
-                }
-                else {
-                    resultMessage = winnerMessage;
-                    result = 1;
-                }
-                return { resultMessage, result }
+            else if (computerSelection === 'Rock' && playerSelection === 'Scissors') {
+                resultMessage = looserMessage;
+                result = 0;
             }
+            else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
+                resultMessage = looserMessage;
+                result = 0;
+            }
+            else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
+                resultMessage = looserMessage;
+                result = 0;
+            }
+            else {
+                resultMessage = winnerMessage;
+                result = 1;
+            }
+            return { resultMessage, result }
+        }
 
-            function game() {
-                let computerScore = 0;
-                let playerScore = 0;
+        function game() {
+            let computerScore = 0;
+            let playerScore = 0;
 
-                for (let i = 0; i < 5; i++) {
-                    let { resultMessage, result } = playRound();
-                    console.log(resultMessage);
-                    if (result == 1) {
-                        playerScore += 1;
-                    }
-                    else if (result == 0) {
-                        computerScore += 1;
-                    }
+            for (let i = 0; i < 5; i++) {
+                let { resultMessage, result } = playRound();
+                console.log(resultMessage);
+                if (result == 1) {
+                    playerScore += 1;
                 }
-                console.log(`Player has ${playerScore} point(s), Computer has ${computerScore} point(s).`)
-                if (playerScore > computerScore) {
-                    console.log('Players wins the game!!')
-                }
-                else if (playerScore < computerScore) {
-                    console.log('Computer wins the game!!')
-                }
-                else {
-                    console.log('Tied!!')
+                else if (result == 0) {
+                    computerScore += 1;
                 }
             }
+            console.log(`Player has ${playerScore} point(s), Computer has ${computerScore} point(s).`)
+            if (playerScore > computerScore) {
+                console.log('Players wins the game!!')
+            }
+            else if (playerScore < computerScore) {
+                console.log('Computer wins the game!!')
+            }
+            else {
+                console.log('Tied!!')
+            }
+        }
 
-        </script>
-    </body>
-</hmtl>
+    </script>
+</body>
+
+</html>

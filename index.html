@@ -19,12 +19,14 @@
                 return item;
             }
 
-            function playRound(playerSelection, computerSelection = computerPlay()) {
+            function playRound() {
+                let playerSelection = prompt('Write your choice (Rock, Paper or Scissors)');
                 playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+                let computerSelection = computerPlay()
                 let looserMessage = `You Lose! ${computerSelection} beats ${playerSelection}`;
                 let winnerMessage = `You Win! ${playerSelection} beats ${computerSelection}`;
                 let result
-
+ß
                 if (computerSelection === playerSelection) {
                     result = `It\'s a tie!! Both choose ${computerSelection}`;
                 }
@@ -42,6 +44,7 @@
                 }
                 return result
             }
+            
         </script>
     </body>
 </hmtl>

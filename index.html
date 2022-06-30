@@ -23,22 +23,24 @@
                 playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
                 let looserMessage = `You Lose! ${computerSelection} beats ${playerSelection}`;
                 let winnerMessage = `You Win! ${playerSelection} beats ${computerSelection}`;
+                let result
 
                 if (computerSelection === playerSelection) {
-                    console.log(`It\'s a tie!! Both choose ${computerSelection}`);
+                    result = `It\'s a tie!! Both choose ${computerSelection}`;
                 }
                 else if (computerSelection === 'Rock' && playerSelection === 'Scissors') {
-                    console.log(looserMessage);
+                    result = looserMessage;
                 }
                 else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
-                    console.log(looserMessage);
+                    result = looserMessage;
                 }
                 else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
-                    console.log(looserMessage);
+                    result = looserMessage;
                 }
                 else {
-                    console.log(winnerMessage);
+                    result = winnerMessage;
                 }
+                return result
             }
         </script>
     </body>

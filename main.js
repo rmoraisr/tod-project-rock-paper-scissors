@@ -1,6 +1,6 @@
 const tieMessage = 'Arr! No one won this round';
 const winMessage = 'I won this round, You lost!';
-const defeatMessage = 'You win this; round!';
+const defeatMessage = 'You win this round!';
 let roundResult = '';
 let computerScore = 0;
 let playerScore = 0;
@@ -34,21 +34,11 @@ function playRound(playerSelection, computerSelection) {
         (computerSelection === 'scissors' && playerSelection === 'paper') ||
         (computerSelection === 'paper' && playerSelection === 'rock')
     ) {
-        return roundResult = winMessage;
-    } else {
-        return roundResult = defeatMessage;
-    }
-}
-
-// Call playRound(), keeps score and return the winner after a defined number of rounds
-function playGame() {
-    playRound();
-    if (roundResult === winMessage) {
+        roundResult = winMessage + ` ${computerSelection} beats ${playerSelection}`;
         computerScore += 1;
-    }
-    else if (roundResult === defeatMessage) {
+    } else {
+        roundResult = defeatMessage + ` ${playerSelection} beats ${computerSelection}`;
         playerScore += 1;
     }
-    return
+    return;
 }
-

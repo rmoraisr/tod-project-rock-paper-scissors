@@ -1,4 +1,9 @@
+const tieMessage = 'Arr! No one won this round';
+const winMessage = 'I won this round, You lost!';
+const defeatMessage = 'You win this; round!';
 let roundResult = '';
+let computerScore = 0;
+let playerScore = 0;
 
 /**
  * The computerPlay function returns a random choice from the computerChoices array.
@@ -23,22 +28,26 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
     if (computerSelection === playerSelection) {
-        return roundResult = 'Arr! No one won this round';
+        return roundResult = tieMessage;
     } else if (
         (computerSelection === 'rock' && playerSelection === 'scissors') ||
         (computerSelection === 'scissors' && playerSelection === 'paper') ||
         (computerSelection === 'paper' && playerSelection === 'rock')
     ) {
-        return roundResult = 'I won this round, You lost!'
+        return roundResult = winMessage;
     } else {
-        return roundResult = 'You win this round!'
+        return roundResult = defeatMessage;
     }
 }
 
 // Call playRound(), keeps score and return the winner after a defined number of rounds
-function playGame() {
+// function playGame() {
+//     if (roundResult === 'I won this round, You lost!') {
+//         computerScore += 1;
+//     }
+//     else if (roundResult === )
 
-}
+// }
 
 
 (playRound());

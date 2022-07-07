@@ -55,16 +55,6 @@
             let computerScore = 0;
             let playerScore = 0;
 
-            for (let i = 0; i < 5; i++) {
-                let { resultMessage, result } = playRound();
-                console.log(resultMessage);
-                if (result == 1) {
-                    playerScore += 1;
-                }
-                else if (result == 0) {
-                    computerScore += 1;
-                }
-            }
             console.log(`Player has ${playerScore} point(s), Computer has ${computerScore} point(s).`)
             if (playerScore > computerScore) {
                 console.log('Players wins the game!!')

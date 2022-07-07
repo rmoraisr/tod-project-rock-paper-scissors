@@ -41,14 +41,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Call playRound(), keeps score and return the winner after a defined number of rounds
-// function playGame() {
-//     if (roundResult === 'I won this round, You lost!') {
-//         computerScore += 1;
-//     }
-//     else if (roundResult === )
+function playGame() {
+    playRound();
+    if (roundResult === winMessage) {
+        computerScore += 1;
+    }
+    else if (roundResult === defeatMessage) {
+        playerScore += 1;
+    }
+    return
+}
 
-// }
-
-
-(playRound());
-console.log(roundResult);

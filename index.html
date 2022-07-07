@@ -4,16 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <script src="./main.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 
 <body>
-    <h1>Rock, Paper and Scissors</h1>
+    <header class="header">
+        <div class="container">
+            <div>
+                <h1>Paper, Rock or Scissors?</h1>
+            </div>
+        </div>
+    </header>
+    <!-- Call the playRound() -->
     <div class="buttons">
-        <button id="btn-r">Rock</button>
-        <button id="btn-p">Paper</button>
-        <button id="btn-s">Scissors</button>
+        <div class="container">
+            <button id="btn-r">Rock</button>
+            <button id="btn-p">Paper</button>
+            <button id="btn-s">Scissors</button>
+        </div>
+    </div>
+    <div class="results">
+        <div class="container">
+            <!-- Display Result -->
+            <div class="result"></div>
+            <!-- Display the running score -->
+            <div class="score"></div>
+            <!--Announce winner after 5 rounds-->
+            <div class="winner"></div>
+        </div>
     </div>
 </body>
 

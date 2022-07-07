@@ -1,3 +1,5 @@
+let roundResult = '';
+
 /**
  * The computerPlay function returns a random choice from the computerChoices array.
  * @returns The computer's choice of rock, paper, or scissors.
@@ -21,22 +23,23 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
     if (computerSelection === playerSelection) {
-        return 'Tie Game!';
+        return roundResult = 'Arr! No one won this round';
     } else if (
         (computerSelection === 'rock' && playerSelection === 'scissors') ||
         (computerSelection === 'scissors' && playerSelection === 'paper') ||
         (computerSelection === 'paper' && playerSelection === 'rock')
     ) {
-        return 'You lost!'
+        return roundResult = 'I won this round, You lost!'
     } else {
-        return 'You win!'
+        return roundResult = 'You win this round!'
     }
 }
 
 // Call playRound(), keeps score and return the winner after a defined number of rounds
-// function playGame() {
+function playGame() {
 
-// }
+}
 
 
-console.log(playRound());
+(playRound());
+console.log(roundResult);

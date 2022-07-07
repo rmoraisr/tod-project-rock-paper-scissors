@@ -3,7 +3,7 @@
  * @returns The computer's choice of rock, paper, or scissors.
  */
 function computerPlay() {
-    computerChoices = ['rock', 'paper', 'scissors'];
+    const computerChoices = ['rock', 'paper', 'scissors'];
     return computerChoices[Math.floor(Math.random() * computerChoices.length)];
 };
 

@@ -6,6 +6,15 @@ let roundResult = '';
 let computerScore = 0;
 let playerScore = 0;
 
+const buttons = document.querySelectorAll('#btn');
+buttons.forEach(button => {
+    button.addEventListener('click', () => playRound(button.value)
+    );
+});
+
+const resetButton = document.querySelector('#btn-reset');
+resetButton.addEventListener('click', () => { resetScore(), enableButton() });
+
 /**
  * The computerPlay function returns a random choice from the computerChoices array.
  * @returns The computer's choice of rock, paper, or scissors.
@@ -27,7 +36,7 @@ function playRound(playerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
     if (computerSelection === playerSelection) {
-        return roundResult = tieMessage;
+        roundResult = tieMessage;
     } else if (
         (computerSelection === 'rock' && playerSelection === 'scissors') ||
         (computerSelection === 'scissors' && playerSelection === 'paper') ||
@@ -52,6 +61,7 @@ function playRound(playerSelection) {
     // Rendering
     renderValues(roundResult, computerScore, playerScore);
     renderEndMessage(endMessage);
+    return;
 };
 
 /**
@@ -74,18 +84,19 @@ function renderEndMessage(endMessage) {
     winner.innerHTML = `<h1>${endMessage}</h1>`;
 }
 
-const buttons = document.querySelectorAll('#btn');
-buttons.forEach(button => {
-    button.addEventListener('click', () => playRound(button.value)
-    );
-});
-
 function disableButton() {
-    buttons.forEach(e => { e.disabled = true });
+    buttons.forEach(e => {
+        e.disabled = true,
+            e.setAttribute('id', 'endGame')
+    });
 };
 
 function enableButton() {
-    buttons.forEach(e => { e.disabled = false });
+    buttons.forEach(e => {
+        e.disabled = false,
+            e.setAttribute('id', 'btn')
+    });
+
 };
 
 function resetScore() {
@@ -95,10 +106,4 @@ function resetScore() {
     renderEndMessage(endMessage = '');
     return
 }
-
-const resetButton = document.querySelector('#btn-reset');
-resetButton.addEventListener('click', () => { resetScore(), enableButton() });
-
-
-
 

@@ -1,6 +1,7 @@
 const tieMessage = 'Arr! No one won this round';
 const winMessage = 'I won this round, You lost!';
 const defeatMessage = 'You win this round!';
+let endMessage = '';
 let roundResult = '';
 let computerScore = 0;
 let playerScore = 0;
@@ -21,9 +22,7 @@ function computerPlay() {
  * @param computerSelection - a string that is either 'rock', 'paper', or 'scissors'
  * @returns The result of the round.
  */
-function playRound(playerSelection, computerSelection) {
-    playerSelection = 'Paper'; // ! remove code
-
+function playRound(playerSelection) {
     computerSelection = computerPlay();
     playerSelection = playerSelection.toLowerCase();
 
@@ -40,5 +39,66 @@ function playRound(playerSelection, computerSelection) {
         roundResult = defeatMessage + ` ${playerSelection} beats ${computerSelection}`;
         playerScore += 1;
     }
-    return;
+
+    if (computerScore === 5) {
+        disableButton();
+        endMessage = 'I won the Game! Hahahahahah!!!';
+    };
+    if (playerScore === 5) {
+        disableButton()
+        endMessage = 'You won the Game!';
+    };
+
+    // Rendering
+    renderValues(roundResult, computerScore, playerScore);
+    renderEndMessage(endMessage);
+};
+
+/**
+ * DOM MANIPULATION
+ * All code from now is related to DOM methods
+ */
+function renderValues(roundResult, computerScore, playerScore) {
+    const resultPar = document.querySelector('.result');
+    resultPar.innerHTML = `<p>${roundResult}</p>`;
+
+    const computerScorePar = document.querySelector('#computerScore');
+    computerScorePar.textContent = `Computer score: ${computerScore}`;
+
+    const playerScorePar = document.querySelector('#playerScore');
+    playerScorePar.textContent = `Player score: ${playerScore}`;
 }
+
+function renderEndMessage(endMessage) {
+    const winner = document.querySelector('.winner');
+    winner.innerHTML = `<h1>${endMessage}</h1>`;
+}
+
+const buttons = document.querySelectorAll('#btn');
+buttons.forEach(button => {
+    button.addEventListener('click', () => playRound(button.value)
+    );
+});
+
+function disableButton() {
+    buttons.forEach(e => { e.disabled = true });
+};
+
+function enableButton() {
+    buttons.forEach(e => { e.disabled = false });
+};
+
+function resetScore() {
+    computerScore = 0;
+    playerScore = 0;
+    renderValues(roundResult = '', computerScore, playerScore);
+    renderEndMessage(endMessage = '');
+    return
+}
+
+const resetButton = document.querySelector('#btn-reset');
+resetButton.addEventListener('click', () => { resetScore(), enableButton() });
+
+
+
+

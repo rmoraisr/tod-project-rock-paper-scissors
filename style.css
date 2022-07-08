@@ -19,3 +19,8 @@ body {
     margin: 0 auto;
     padding: 0 30px;
 }
+
+.results .container {
+    min-height: 100px;
+    padding: 20px;
+}

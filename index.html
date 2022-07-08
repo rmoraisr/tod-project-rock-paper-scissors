@@ -20,9 +20,9 @@
     <!-- Call the playRound() -->
     <div class="buttons">
         <div class="container">
-            <button id="btn-r">Rock</button>
-            <button id="btn-p">Paper</button>
-            <button id="btn-s">Scissors</button>
+            <button id="btn" value="rock">Rock</button>
+            <button id="btn" value="paper">Paper</button>
+            <button id="btn" value="scissors">Scissors</button>
         </div>
     </div>
     <div class="results">
@@ -31,8 +31,15 @@
             <div class="result"></div>
             <!-- Display the running score -->
             <div class="score"></div>
+            <p id="computerScore"></p>
+            <p id="playerScore"></p>
             <!--Announce winner after 5 rounds-->
             <div class="winner"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <button id="btn-reset">Play Again</button>
         </div>
     </div>
 </body>
